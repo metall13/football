@@ -1,4 +1,4 @@
-package football
+package main
 
 import (
 	"fmt"
@@ -77,7 +77,7 @@ func output(l map[team]map[team]resultsMach) string {
 	var scoreboard string
 	var res string
 
-	scoreboard += fmt.Sprintf("\t %v", ALL)
+	scoreboard += fmt.Sprintf("%v \n", ALL)
 
 	for k, c := range l {
 		for r, _ := range ALL {
