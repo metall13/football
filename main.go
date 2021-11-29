@@ -1,6 +1,7 @@
 package football
 
 import (
+	"fmt"
 	"strings"
 )
 
@@ -28,7 +29,7 @@ var ALL = allTeams{}
 //	fmt.Println(asdasd)
 //}
 
-func AddData(resultsNew string) map[team]map[team]resultsMach {
+func AddData(resultsNew string) string {
 
 	//bytes, err := ioutil.ReadAll(os.Stdin)
 	//if err != nil {
@@ -45,7 +46,8 @@ func AddData(resultsNew string) map[team]map[team]resultsMach {
 	}
 
 	listParse := parse(masData)
-	return listParse
+	outData := output(listParse)
+	return outData
 	//os.Exit(0)
 }
 
@@ -70,13 +72,18 @@ func parse(data []inputData) map[team]map[team]resultsMach {
 	return lists
 }
 
-//func output(l map[team]map[team]resultsMach) {
-//	fmt.Println("\t %v", ALL)
-//	for k, c := range l {
-//		var res string
-//		for r, _ := range ALL {
-//			res += fmt.Sprintf("%5v", c[r].r)
-//		}
-//		fmt.Printf("%10v %5v\n", k, res)
-//	}
-//}
+func output(l map[team]map[team]resultsMach) string {
+	var scoreboard int
+	scoreboardString := ""
+
+	scoreboardString += fmt.Sprintf("\t %v", ALL)
+	for k, c := range l {
+		var res string
+		for r, _ := range ALL {
+			res += fmt.Sprintf("%5v", c[r].r)
+		}
+		scoreboard, _ = fmt.Printf("%10v %5v\n", k, res)
+		scoreboardString += string(scoreboard)
+	}
+	return scoreboardString
+}
