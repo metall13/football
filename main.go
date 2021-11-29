@@ -23,11 +23,11 @@ type list map[team][]resultsMach
 
 var ALL = allTeams{}
 
-func main() {
-	newMach := "Спартак Динамо 3 1\nСпартак Зенит 1 1\nЗенит Динамо 1 3"
-	asdasd := AddData(newMach)
-	fmt.Println(asdasd)
-}
+//func main() {
+//	newMach := "Спартак Динамо 3 1\nСпартак Зенит 1 1\nЗенит Динамо 1 3"
+//	asdasd := AddData(newMach)
+//	fmt.Println(asdasd)
+//}
 
 func AddData(resultsNew string) string {
 
