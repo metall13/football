@@ -75,19 +75,16 @@ func parse(data []inputData) map[team]map[team]resultsMach {
 
 func output(l map[team]map[team]resultsMach) string {
 	var scoreboard string
-	scoreboardString := ""
 	var res string
 
-	scoreboardString += fmt.Sprintf("\t %v", ALL)
+	scoreboard += fmt.Sprintf("\t %v", ALL)
 
 	for k, c := range l {
-
 		for r, _ := range ALL {
 			res += fmt.Sprintf("%5v", c[r].r)
 		}
-		scoreboard = fmt.Sprintf("%10v %5v\n", k, res)
-		scoreboardString += scoreboard
+		scoreboard += fmt.Sprintf("%10v %5v\n", k, res)
 	}
 
-	return scoreboardString
+	return scoreboard
 }
