@@ -1,4 +1,4 @@
-package football
+package main
 
 import (
 	"fmt"
@@ -23,11 +23,13 @@ type list map[team][]resultsMach
 
 var ALL = allTeams{}
 
-//func main() {
-//	newMach := "Спартак Динамо 3 1\nСпартак Зенит 1 1\nЗенит Динамо 1 3"
-//	asdasd := AddData(newMach)
-//	fmt.Println(asdasd)
-//}
+func main() {
+	newMach := "Спартак Динамо 3 1\n" +
+		"Спартак Зенит 1 1\n" +
+		"Зенит Динамо 1 3"
+	asdasd := AddData(newMach)
+	fmt.Println(asdasd)
+}
 
 func AddData(resultsNew string) string {
 
@@ -36,7 +38,7 @@ func AddData(resultsNew string) string {
 	//	log.Fatal(err)
 	//}
 
-	dataSlise := strings.Split(string(resultsNew), "\n")
+	dataSlise := strings.Split(resultsNew, "\n")
 	masData := make([]inputData, 0, 0)
 
 	for _, val := range dataSlise {
@@ -47,7 +49,6 @@ func AddData(resultsNew string) string {
 
 	listParse := parse(masData)
 	outData := output(listParse)
-	fmt.Println(outData)
 	return outData
 	//os.Exit(0)
 }
