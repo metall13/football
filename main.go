@@ -1,8 +1,7 @@
-package football
+package main
 
 import (
 	"fmt"
-	"os"
 	"strings"
 )
 
@@ -24,14 +23,20 @@ type list map[team][]resultsMach
 
 var ALL = allTeams{}
 
-func AddData(resultsNew string) {
+func main() {
+	newMach := "Спартак Динамо 3 1 \n Спартак Зенит 1 1 \n Зенит Динамо 1 3"
+	asdasd := AddData(newMach)
+	fmt.Println(asdasd)
+}
+
+func AddData(resultsNew string) map[team]map[team]resultsMach {
 
 	//bytes, err := ioutil.ReadAll(os.Stdin)
 	//if err != nil {
 	//	log.Fatal(err)
 	//}
 
-	dataSlise := strings.Split(resultsNew, "\n")
+	dataSlise := strings.Split(string(resultsNew), "\n")
 	masData := make([]inputData, 0, 0)
 
 	for _, val := range dataSlise {
@@ -40,11 +45,12 @@ func AddData(resultsNew string) {
 		masData = append(masData, id)
 	}
 
-	parse(masData)
-	os.Exit(0)
+	listParse := parse(masData)
+	return listParse
+	//os.Exit(0)
 }
 
-func parse(data []inputData) {
+func parse(data []inputData) map[team]map[team]resultsMach {
 	var lists = map[team]map[team]resultsMach{}
 	for _, j := range data {
 		ALL[team(j.c1)]++
@@ -62,16 +68,16 @@ func parse(data []inputData) {
 		}
 	}
 
-	output(lists)
+	return lists
 }
 
-func output(l map[team]map[team]resultsMach) {
-	fmt.Println("\t %v", ALL)
-	for k, c := range l {
-		var res string
-		for r, _ := range ALL {
-			res += fmt.Sprintf("%5v", c[r].r)
-		}
-		fmt.Printf("%10v %5v\n", k, res)
-	}
-}
+//func output(l map[team]map[team]resultsMach) {
+//	fmt.Println("\t %v", ALL)
+//	for k, c := range l {
+//		var res string
+//		for r, _ := range ALL {
+//			res += fmt.Sprintf("%5v", c[r].r)
+//		}
+//		fmt.Printf("%10v %5v\n", k, res)
+//	}
+//}
