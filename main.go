@@ -1,4 +1,4 @@
-package main
+package football
 
 import (
 	"fmt"
@@ -23,13 +23,13 @@ type list map[team][]resultsMach
 
 var ALL = allTeams{}
 
-func main() {
-	newMach := "Спартак Динамо 3 1\n" +
-		"Спартак Зенит 1 1\n" +
-		"Зенит Динамо 1 3"
-	asdasd := AddData(newMach)
-	fmt.Println(asdasd)
-}
+//func main() {
+//	newMach := "Спартак Динамо 3 1\n" +
+//		"Спартак Зенит 1 1\n" +
+//		"Зенит Динамо 1 3"
+//	asdasd := AddData(newMach)
+//	fmt.Println(asdasd)
+//}
 
 func AddData(resultsNew string) string {
 
