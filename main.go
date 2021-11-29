@@ -78,6 +78,8 @@ func output(l map[team]map[team]resultsMach) string {
 	scoreboardString := ""
 	var res string
 
+	scoreboardString += fmt.Sprintf("\t %v", ALL)
+
 	for k, c := range l {
 
 		for r, _ := range ALL {
@@ -86,6 +88,6 @@ func output(l map[team]map[team]resultsMach) string {
 		scoreboard = fmt.Sprintf("%10v %5v\n", k, res)
 		scoreboardString += scoreboard
 	}
-	scoreboardString += fmt.Sprintf("\t %v", ALL)
+
 	return scoreboardString
 }
